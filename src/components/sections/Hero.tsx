@@ -28,23 +28,22 @@ export function Hero() {
           variants={fadeUp}
           className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-7xl"
         >
-          Your <span className="text-gradient">Voice Engine</span>,{" "}
-          Running&nbsp;Locally
+          Offline <span className="text-gradient">Qwen3-TTS</span> for macOS
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary sm:text-xl"
         >
-          A native macOS app for voice cloning, emotion control, and natural
-          language voice design&nbsp;&mdash;&nbsp;powered by Qwen3&#8209;TTS,
-          entirely offline on Apple&nbsp;Silicon.
+          QwenVoice is a native macOS app for Qwen3&#8209;TTS with custom
+          voices, voice design, and voice cloning&nbsp;&mdash;&nbsp;running
+          100% offline on Apple&nbsp;Silicon.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-6">
           <Badge>
             <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-            Open Source &middot; macOS Only
+            Apple Silicon &middot; macOS 15+
           </Badge>
         </motion.div>
 

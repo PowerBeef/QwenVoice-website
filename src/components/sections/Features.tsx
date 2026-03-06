@@ -20,26 +20,26 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: Mic,
-    title: "Custom Voice Speakers",
+    title: "Custom Voice",
     description:
-      "Choose from 4 built-in speakers with distinct vocal characteristics, or fine-tune speech with natural language control over tone, pace, and emotion.",
-    chips: ["4 Built-in Voices", "Natural Control", "Emotional Range"],
+      "Generate speech with four built-in English speakers: Ryan, Aiden, Serena, and Vivian. Add natural-language instructions to guide delivery, pacing, and character inside the main workflow.",
+    chips: ["4 English Speakers", "Instruction Prompt", "Offline Generation"],
     screenshot: "/images/screenshot-custom-voice.png",
   },
   {
     icon: Paintbrush,
-    title: "Voice Design Studio",
+    title: "Voice Design",
     description:
-      "Create entirely new voices from text descriptions. Describe the voice you want — age, accent, personality — and QwenVoice brings it to life.",
-    chips: ["Text-to-Voice", "Custom Personas", "Unlimited Variety"],
+      "Switch to the Custom speaker chip inside Custom Voice to describe a brand-new voice in plain language. Voice Design is part of the shipped Custom Voice flow, not a separate sidebar screen.",
+    chips: ["Inside Custom Voice", "Plain-Language Design", "New Voice Identity"],
     screenshot: "/images/screenshot-voice-design.png",
   },
   {
     icon: AudioLines,
     title: "Voice Cloning",
     description:
-      "Clone any voice from just 5–10 seconds of audio. Upload a sample and generate speech that captures the unique characteristics of the source.",
-    chips: ["5-10s Samples", "High Fidelity", "Fast Processing"],
+      "Clone a voice from a short reference clip and optionally include a transcript for better accuracy. The shipped app accepts WAV, MP3, AIFF, M4A, FLAC, and OGG input.",
+    chips: ["5-10s Reference", "Optional Transcript", "Common Audio Formats"],
     screenshot: "/images/screenshot-voice-cloning.png",
   },
 ];
@@ -50,8 +50,8 @@ export function Features() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Features"
-          title="Everything You Need for Voice Generation"
-          subtitle="Three powerful modes for creating natural, expressive speech — all running locally on your Mac."
+          title="Three Shipped Voice Workflows"
+          subtitle="The current QwenVoice app focuses on custom voices, voice design, and voice cloning, with all generation running locally on your Mac."
         />
 
         <motion.div

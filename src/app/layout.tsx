@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { SITE } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,22 +13,22 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const siteTitle = `${SITE.name} — ${SITE.tagline}`;
+
 export const metadata: Metadata = {
-  title: "QwenVoice — Your Voice Engine, Running Locally",
-  description:
-    "A native macOS app that runs Qwen3-TTS entirely offline on Apple Silicon. Custom voices, voice cloning, and natural language voice design — all private, all local.",
+  metadataBase: new URL("https://qwenvoice.vercel.app"),
+  title: siteTitle,
+  description: SITE.description,
   openGraph: {
-    title: "QwenVoice — Your Voice Engine, Running Locally",
-    description:
-      "Run Qwen3-TTS entirely offline on Apple Silicon. Custom voices, voice cloning, and natural language voice design.",
+    title: siteTitle,
+    description: SITE.description,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "QwenVoice — Text-to-Speech for Mac",
-    description:
-      "Run Qwen3-TTS entirely offline on Apple Silicon. Custom voices, voice cloning, and natural language voice design.",
+    title: siteTitle,
+    description: SITE.description,
     images: ["/og-image.png"],
   },
   icons: {

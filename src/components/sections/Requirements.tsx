@@ -15,9 +15,9 @@ interface Requirement {
 }
 
 const requirements: Requirement[] = [
-  { icon: Monitor, title: "macOS", value: "14+ (Sonoma)" },
-  { icon: Cpu, title: "Processor", value: "Apple Silicon (M1–M4)" },
-  { icon: MemoryStick, title: "RAM", value: "8 GB minimum" },
+  { icon: Monitor, title: "macOS", value: "15.0+" },
+  { icon: Cpu, title: "Processor", value: "Apple Silicon" },
+  { icon: MemoryStick, title: "RAM", value: "8 GB+ recommended" },
 ];
 
 export function Requirements() {
@@ -27,7 +27,7 @@ export function Requirements() {
         <SectionHeader
           label="System Requirements"
           title="What You Need"
-          subtitle="QwenVoice is designed for modern Macs with Apple Silicon."
+          subtitle="Install the app on an Apple Silicon Mac running macOS 15 or newer."
         />
 
         <motion.div
@@ -39,7 +39,7 @@ export function Requirements() {
         >
           {requirements.map((req) => (
             <motion.div key={req.title} variants={fadeUp}>
-              <GlassCard className="flex flex-col items-center p-8 text-center">
+              <GlassCard className="flex h-full flex-col items-center justify-center p-8 text-center">
                 <req.icon className="mb-4 h-8 w-8 text-accent" />
                 <p className="text-sm text-text-secondary">{req.title}</p>
                 <p className="mt-1 text-xl font-semibold text-text-primary">

@@ -1,19 +1,26 @@
 import { Github } from "lucide-react";
 import { SITE } from "@/lib/constants";
 
-const mlCredits = [
-  { name: "Qwen3-TTS", desc: "Text-to-speech model by Alibaba", url: "https://huggingface.co/Qwen/Qwen3-TTS" },
-  { name: "qwen3-tts-apple-silicon", desc: "Qwen3-TTS optimized for Apple Silicon", url: "https://github.com/kapi2800/qwen3-tts-apple-silicon" },
-  { name: "GRDB.swift", desc: "SQLite toolkit for Swift", url: "https://github.com/groue/GRDB.swift" },
+const projectLinks = [
+  { name: "GitHub", desc: "Browse the upstream repository", url: SITE.github },
+  { name: "Releases", desc: "Download the latest DMG builds", url: SITE.download },
+  { name: "Issues", desc: "Report bugs or follow app changes", url: `${SITE.github}/issues` },
 ];
 
-const appleCredits = [
-  { name: "MLX", desc: "Apple's ML framework for Apple Silicon", url: "https://github.com/ml-explore/mlx" },
-  { name: "mlx-audio", desc: "Audio processing toolkit for MLX", url: "https://github.com/Blaizzy/mlx-audio" },
-  { name: "mlx-community", desc: "Community hub for MLX models", url: "https://huggingface.co/mlx-community" },
+const docsLinks = [
+  { name: "README", desc: "End-user overview and install notes", url: `${SITE.github}/blob/main/README.md` },
+  { name: "Tone Guide", desc: "Instruction writing guidance for the shipped app", url: `${SITE.github}/blob/main/qwen_tone.md` },
+  { name: "CLI Companion", desc: "Standalone scripted workflow docs", url: `${SITE.github}/blob/main/cli/README.md` },
 ];
 
-function CreditList({ items }: { items: typeof mlCredits }) {
+const stackCredits = [
+  { name: "Qwen3-TTS", desc: "Core text-to-speech model family", url: "https://github.com/QwenLM/Qwen3-TTS" },
+  { name: "MLX", desc: "Apple Silicon ML framework", url: "https://github.com/ml-explore/mlx" },
+  { name: "mlx-audio", desc: "Audio tooling used in the backend", url: "https://github.com/Blaizzy/mlx-audio" },
+  { name: "GRDB.swift", desc: "SQLite toolkit for local history", url: "https://github.com/groue/GRDB.swift" },
+];
+
+function LinkList({ items }: { items: readonly { name: string; desc: string; url: string }[] }) {
   return (
     <ul className="space-y-3 text-xs">
       {items.map((project) => (
@@ -37,11 +44,11 @@ export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-bg-secondary/50">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-3 gap-4 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
           {/* Brand + Links */}
           <div>
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
-              QwenVoice
+              Project
             </h4>
             <ul className="space-y-3 text-xs">
               <li>
@@ -55,56 +62,39 @@ export function Footer() {
                   GitHub
                 </a>
               </li>
-              <li>
-                <a
-                  href={SITE.download}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  Download Latest
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`${SITE.github}/issues`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  Report Issues
-                </a>
-              </li>
             </ul>
+            <div className="mt-3">
+              <LinkList items={projectLinks.slice(1)} />
+            </div>
           </div>
 
           <div className="hidden sm:block self-stretch bg-white/[0.06]" />
 
-          {/* AI & Speech */}
+          {/* Docs */}
           <div>
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
-              AI &amp; Speech
+              Documentation
             </h4>
-            <CreditList items={mlCredits} />
+            <LinkList items={docsLinks} />
           </div>
 
           <div className="hidden sm:block self-stretch bg-white/[0.06]" />
 
-          {/* Apple & Infrastructure */}
+          {/* Stack */}
           <div>
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
-              Apple &amp; MLX
+              Built With
             </h4>
-            <CreditList items={appleCredits} />
+            <LinkList items={stackCredits} />
           </div>
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-6 sm:flex-row">
           <p className="text-xs text-text-tertiary">
-            &copy; {new Date().getFullYear()} QwenVoice. MIT License.
+            &copy; {new Date().getFullYear()} QwenVoice website.
           </p>
           <p className="text-xs text-text-tertiary">
-            Made with care for the Mac community.
+            Release notes and app documentation live in the upstream GitHub repo.
           </p>
         </div>
       </div>

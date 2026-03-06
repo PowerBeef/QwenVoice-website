@@ -1,12 +1,11 @@
 export const SITE = {
   name: "QwenVoice",
-  tagline: "Your Voice Engine, Running Locally",
+  tagline: "Offline Qwen3-TTS for macOS",
   description:
-    "A native macOS app for voice cloning, emotion control, and natural language voice design — powered by Qwen3-TTS, entirely offline on Apple Silicon.",
-  github: "https://github.com/nicepkg/QwenVoice",
+    "A native macOS app for Qwen3-TTS with custom voices, voice design, and voice cloning, 100% offline on Apple Silicon.",
+  github: "https://github.com/PowerBeef/QwenVoice",
   download:
-    "https://github.com/nicepkg/QwenVoice/releases/latest",
-  version: "1.0.0",
+    "https://github.com/PowerBeef/QwenVoice/releases/latest",
 } as const;
 
 export const NAV_LINKS = [

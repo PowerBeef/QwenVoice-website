@@ -27,38 +27,38 @@ const techItems: TechItem[] = [
     icon: WifiOff,
     title: "100% Offline",
     description:
-      "Every computation happens on your device. No data ever leaves your Mac — complete privacy by design.",
+      "Inference runs locally on your Mac. Models, prompts, audio, and generation history stay on-device.",
     span: "md:col-span-2",
   },
   {
     icon: Cpu,
-    title: "Apple MLX Accelerated",
+    title: "Apple Silicon + MLX",
     description:
-      "Optimized for Apple Silicon using the MLX framework for maximum GPU utilization.",
+      "The app pairs a native SwiftUI frontend with an MLX-backed Python backend tuned for Apple Silicon.",
   },
   {
     icon: PackageCheck,
-    title: "Zero Dependencies",
+    title: "Packaged Native App",
     description:
-      "Self-contained .app bundle. No Python, no Homebrew, no command-line setup required.",
+      "End users install a DMG and run QwenVoice without setting up Python, Homebrew, or terminal tooling.",
   },
   {
     icon: Binary,
-    title: "1.7B Parameters",
+    title: "Native Model Downloads",
     description:
-      "Powered by Qwen3-TTS 1.7B parameter models for state-of-the-art voice quality.",
+      "The shipped GUI downloads the three supported Qwen3-TTS models directly inside the app.",
   },
   {
     icon: Network,
-    title: "JSON-RPC 2.0",
+    title: "Local History and Outputs",
     description:
-      "Built-in local server for seamless integration with other apps and automation workflows.",
+      "Generation history is stored locally in SQLite via GRDB, and audio can stay in the default output tree or a custom directory.",
   },
   {
     icon: SlidersHorizontal,
-    title: "Intuitive Voice Controls",
+    title: "Batch Jobs and Preferences",
     description:
-      "Fine-tune emotion and speaking speed with intuitive UI controls for precise voice customization.",
+      "The shipped GUI supports multi-line batch generation, configurable autoplay, and a dedicated Preferences screen.",
     span: "md:col-span-2",
   },
 ];
@@ -85,78 +85,91 @@ export function TechHighlights() {
         <SectionHeader
           label="Under the Hood"
           title="Technical Highlights"
-          subtitle="Built with performance and privacy at the core."
+          subtitle="The shipped GUI is built around local inference, in-app model management, and native macOS workflows."
         />
 
         <div className="flex flex-col gap-4">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-4 md:grid-cols-4"
-        >
-          {techItems.map((item) => (
-            <motion.div
-              key={item.title}
-              variants={fadeUp}
-              className={item.span}
-            >
-              <GlassCard className="flex h-full flex-col p-8">
-                <item.icon className="mb-4 h-8 w-8 text-accent" />
-                <h3 className="mb-2 text-lg font-semibold text-text-primary">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
-                  {item.description}
-                </p>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid gap-4 md:grid-cols-4"
+          >
+            {techItems.map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                className={item.span}
+              >
+                <GlassCard className="flex h-full flex-col p-8">
+                  <item.icon className="mb-4 h-8 w-8 text-accent" />
+                  <h3 className="mb-2 text-lg font-semibold text-text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-text-secondary">
+                    {item.description}
+                  </p>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          <GlassCard className="overflow-hidden p-0">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-white/[0.06]">
-                    <th className="px-6 py-4 text-left font-semibold text-text-primary">
-                      Model
-                    </th>
-                    <th className="px-6 py-4 text-left font-semibold text-text-primary">
-                      Use Case
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {models.map((model, i) => (
-                    <tr
-                      key={model.name}
-                      className={
-                        i < models.length - 1
-                          ? "border-b border-white/[0.04]"
-                          : ""
-                      }
-                    >
-                      <td className="px-6 py-3.5 font-mono text-text-primary">
-                        {model.name}
-                      </td>
-                      <td className="px-6 py-3.5 text-text-secondary">
-                        {model.useCase}
-                      </td>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <GlassCard className="overflow-hidden p-0">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-white/[0.06]">
+                      <th className="px-6 py-4 text-left font-semibold text-text-primary">
+                        Model
+                      </th>
+                      <th className="px-6 py-4 text-left font-semibold text-text-primary">
+                        Use Case
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </GlassCard>
-        </motion.div>
+                  </thead>
+                  <tbody>
+                    {models.map((model, i) => (
+                      <tr
+                        key={model.name}
+                        className={
+                          i < models.length - 1
+                            ? "border-b border-white/[0.04]"
+                            : ""
+                        }
+                      >
+                        <td className="px-6 py-3.5 font-mono text-text-primary">
+                          {model.name}
+                        </td>
+                        <td className="px-6 py-3.5 text-text-secondary">
+                          {model.useCase}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </GlassCard>
+          </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="px-2 text-sm leading-relaxed text-text-secondary"
+          >
+            For scripted workflows, the upstream repo also ships a standalone
+            CLI companion and a local JSON-RPC 2.0 backend. The packaged GUI
+            intentionally keeps everyday generation inside the app&apos;s
+            non-streaming flow.
+          </motion.p>
         </div>
       </div>
     </section>
