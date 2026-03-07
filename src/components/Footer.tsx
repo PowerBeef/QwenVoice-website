@@ -44,7 +44,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-bg-secondary/50">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
+        <div className="grid grid-cols-3 gap-6 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
           {/* Brand + Links */}
           <div>
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
