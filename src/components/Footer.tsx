@@ -20,9 +20,15 @@ const stackCredits = [
   { name: "GRDB.swift", desc: "SQLite toolkit for local history", url: "https://github.com/groue/GRDB.swift" },
 ];
 
-function LinkList({ items }: { items: readonly { name: string; desc: string; url: string }[] }) {
+function LinkList({
+  items,
+  className,
+}: {
+  items: readonly { name: string; desc: string; url: string }[];
+  className?: string;
+}) {
   return (
-    <ul className="space-y-3 text-xs">
+    <ul className={className ?? "space-y-3 text-xs"}>
       {items.map((project) => (
         <li key={project.name}>
           <a
@@ -46,7 +52,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-3 gap-6 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
           {/* Brand + Links */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
               Project
             </h4>
@@ -56,7 +62,7 @@ export function Footer() {
                   href={SITE.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
+                  className="flex items-center justify-center gap-2 text-text-secondary transition-colors hover:text-text-primary sm:justify-start"
                 >
                   <Github className="h-4 w-4" />
                   GitHub
@@ -64,28 +70,28 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-3">
-              <LinkList items={projectLinks.slice(1)} />
+              <LinkList items={projectLinks.slice(1)} className="space-y-3 text-xs" />
             </div>
           </div>
 
           <div className="hidden sm:block self-stretch bg-white/[0.06]" />
 
           {/* Docs */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
               Documentation
             </h4>
-            <LinkList items={docsLinks} />
+            <LinkList items={docsLinks} className="space-y-3 text-xs" />
           </div>
 
           <div className="hidden sm:block self-stretch bg-white/[0.06]" />
 
           {/* Stack */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="mb-4 text-sm font-semibold text-text-primary">
               Built With
             </h4>
-            <LinkList items={stackCredits} />
+            <LinkList items={stackCredits} className="space-y-3 text-xs" />
           </div>
         </div>
 
