@@ -20,9 +20,9 @@ const stackCredits = [
   { name: "GRDB.swift", desc: "SQLite toolkit for local history", url: "https://github.com/groue/GRDB.swift" },
 ];
 
-function LinkList({ items }: { items: readonly { name: string; desc: string; url: string }[] }) {
+function LinkList({ items, className }: { items: readonly { name: string; desc: string; url: string }[]; className?: string }) {
   return (
-    <ul className="space-y-3 text-xs">
+    <ul className={className ?? "space-y-3 text-xs"}>
       {items.map((project) => (
         <li key={project.name}>
           <a
@@ -43,13 +43,13 @@ function LinkList({ items }: { items: readonly { name: string; desc: string; url
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-bg-secondary/50">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-3 gap-6 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
           {/* Brand + Links */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-text-primary">
+            <h3 className="mb-4 text-sm font-semibold text-text-primary">
               Project
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs">
               <li>
                 <a
@@ -68,24 +68,24 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="hidden sm:block self-stretch bg-white/[0.06]" />
+          <div className="hidden sm:block self-stretch bg-white/[0.06]" aria-hidden="true" />
 
           {/* Docs */}
-          <div className="border-l border-white/[0.06] pl-3 sm:border-l-0 sm:pl-0">
-            <h4 className="mb-4 text-sm font-semibold text-text-primary">
+          <div>
+            <h3 className="mb-4 text-sm font-semibold text-text-primary">
               Documentation
-            </h4>
+            </h3>
             <LinkList items={docsLinks} />
           </div>
 
-          <div className="hidden sm:block self-stretch bg-white/[0.06]" />
+          <div className="hidden sm:block self-stretch bg-white/[0.06]" aria-hidden="true" />
 
           {/* Stack */}
-          <div className="border-l border-white/[0.06] pl-3 sm:border-l-0 sm:pl-0">
-            <h4 className="mb-4 text-sm font-semibold text-text-primary">
+          <div className="col-span-2 border-t border-white/[0.06] pt-6 sm:col-span-1 sm:border-t-0 sm:pt-0">
+            <h3 className="mb-4 text-sm font-semibold text-text-primary">
               Built With
-            </h4>
-            <LinkList items={stackCredits} />
+            </h3>
+            <LinkList items={stackCredits} className="space-y-3 text-xs" />
           </div>
         </div>
 

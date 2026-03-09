@@ -22,7 +22,7 @@ const requirements: Requirement[] = [
 
 export function Requirements() {
   return (
-    <section id={SECTION_IDS.requirements} className="px-6 py-20">
+    <section id={SECTION_IDS.requirements} className="px-4 sm:px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="System Requirements"

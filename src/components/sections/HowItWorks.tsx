@@ -46,7 +46,7 @@ export function HowItWorks() {
   return (
     <section
       id={SECTION_IDS.howItWorks}
-      className="px-6 py-20"
+      className="px-4 sm:px-6 py-20"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeader
@@ -63,7 +63,7 @@ export function HowItWorks() {
           className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {/* Connector line (desktop) */}
-          <div className="pointer-events-none absolute left-0 right-0 top-10 hidden lg:block">
+          <div className="pointer-events-none absolute left-0 right-0 top-10 hidden lg:block" aria-hidden="true">
             <div className="mx-[15%] border-t-2 border-dashed border-white/[0.08]" />
           </div>
 
@@ -100,6 +100,7 @@ export function HowItWorks() {
               alt="QwenVoice Models screen showing downloadable Qwen3-TTS variants"
               width={1948}
               height={1770}
+              sizes="(max-width: 768px) 100vw, 60vw"
               className="w-full"
             />
           </GlassCard>

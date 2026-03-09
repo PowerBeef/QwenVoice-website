@@ -10,7 +10,7 @@ import { fadeUp, staggerContainer } from "@/lib/animations";
 
 export function DownloadCTA() {
   return (
-    <section id={SECTION_IDS.download} className="px-6 py-20">
+    <section id={SECTION_IDS.download} className="px-4 sm:px-6 py-20">
       <div className="mx-auto max-w-3xl">
         <motion.div
           variants={staggerContainer}

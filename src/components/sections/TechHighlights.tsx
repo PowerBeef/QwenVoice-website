@@ -28,7 +28,7 @@ const techItems: TechItem[] = [
     title: "100% Offline",
     description:
       "Inference runs locally on your Mac. Models, prompts, audio, and generation history stay on-device.",
-    span: "md:col-span-2",
+    span: "lg:col-span-2",
   },
   {
     icon: Cpu,
@@ -59,7 +59,7 @@ const techItems: TechItem[] = [
     title: "Batch Jobs and Preferences",
     description:
       "The shipped GUI supports multi-line batch generation, configurable autoplay, and a dedicated Preferences screen.",
-    span: "md:col-span-2",
+    span: "lg:col-span-2",
   },
 ];
 
@@ -80,7 +80,7 @@ const models = [
 
 export function TechHighlights() {
   return (
-    <section id={SECTION_IDS.tech} className="px-6 py-20">
+    <section id={SECTION_IDS.tech} className="px-4 sm:px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Under the Hood"
@@ -94,7 +94,7 @@ export function TechHighlights() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="grid gap-4 md:grid-cols-4"
+            className="grid gap-4 md:grid-cols-2 lg:grid-cols-4"
           >
             {techItems.map((item) => (
               <motion.div
@@ -121,15 +121,16 @@ export function TechHighlights() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <GlassCard className="overflow-hidden p-0">
+            {/* Desktop table */}
+            <GlassCard className="hidden overflow-hidden p-0 sm:block">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/[0.06]">
-                      <th className="px-6 py-4 text-left font-semibold text-text-primary">
+                      <th scope="col" className="px-6 py-4 text-left font-semibold text-text-primary">
                         Model
                       </th>
-                      <th className="px-6 py-4 text-left font-semibold text-text-primary">
+                      <th scope="col" className="px-6 py-4 text-left font-semibold text-text-primary">
                         Use Case
                       </th>
                     </tr>
@@ -156,6 +157,16 @@ export function TechHighlights() {
                 </table>
               </div>
             </GlassCard>
+
+            {/* Mobile stacked cards */}
+            <div className="flex flex-col gap-3 sm:hidden">
+              {models.map((model) => (
+                <GlassCard key={model.name} className="p-4">
+                  <p className="text-xs font-mono text-text-primary break-all">{model.name}</p>
+                  <p className="mt-1.5 text-sm text-text-secondary">{model.useCase}</p>
+                </GlassCard>
+              ))}
+            </div>
           </motion.div>
 
           <motion.p

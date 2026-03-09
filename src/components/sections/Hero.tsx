@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Download, Github } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { SECTION_IDS } from "@/lib/constants";
+import { Button } from "@/components/ui/Button";
+import { SECTION_IDS, SITE } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import Image from "next/image";
 
@@ -10,10 +12,10 @@ export function Hero() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative flex items-center justify-center overflow-hidden px-6 pt-32 pb-20"
+      className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-32 pb-20"
     >
       {/* Background orbs */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="orb orb-blue -left-40 -top-40" />
         <div className="orb orb-purple right-[-10%] top-[20%]" />
       </div>
@@ -42,15 +44,26 @@ export function Hero() {
 
         <motion.div variants={fadeUp} className="mt-6">
           <Badge>
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+            <span className="h-1.5 w-1.5 rounded-full bg-green-400" aria-hidden="true" />
             Apple Silicon &middot; macOS 15+
           </Badge>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+          <Button href={SITE.download}>
+            <Download className="h-4 w-4" />
+            Download Latest Release
+          </Button>
+          <Button href={SITE.github} variant="secondary">
+            <Github className="h-4 w-4" />
+            View on GitHub
+          </Button>
         </motion.div>
 
         {/* App mockup */}
         <motion.div
           variants={fadeUp}
-          className="mt-16 w-full max-w-3xl"
+          className="mt-12 w-full max-w-3xl"
         >
           <div className="overflow-hidden rounded-xl border border-white/[0.08] shadow-2xl shadow-black/50">
             <Image
@@ -58,6 +71,7 @@ export function Hero() {
               alt="QwenVoice app screenshot showing the Custom Voice interface"
               width={1936}
               height={1758}
+              sizes="(max-width: 768px) 100vw, 768px"
               className="w-full"
               priority
             />

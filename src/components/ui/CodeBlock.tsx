@@ -30,6 +30,7 @@ export function CodeBlock({ code, language = "bash", className }: CodeBlockProps
         <span className="text-xs text-text-tertiary font-mono">{language}</span>
         <button
           onClick={handleCopy}
+          aria-label="Copy code to clipboard"
           className="flex items-center gap-1.5 text-xs text-text-tertiary hover:text-text-secondary transition-colors"
         >
           {copied ? (
@@ -46,7 +47,7 @@ export function CodeBlock({ code, language = "bash", className }: CodeBlockProps
         </button>
       </div>
       <pre className="overflow-x-auto p-4">
-        <code className="text-sm font-mono text-text-secondary">{code}</code>
+        <code className="text-[11px] sm:text-sm font-mono text-text-secondary [overflow-wrap:anywhere]">{code}</code>
       </pre>
     </div>
   );

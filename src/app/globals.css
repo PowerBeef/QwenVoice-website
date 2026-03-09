@@ -6,7 +6,7 @@
   --color-bg-tertiary: #131D35;
   --color-text-primary: #F5F5F7;
   --color-text-secondary: #A1A1A6;
-  --color-text-tertiary: #6E6E73;
+  --color-text-tertiary: #8E8E93;
   --color-accent: #4A8BF5;
   --color-accent-hover: #5C9AFF;
   --color-gradient-end: #7B61FF;
@@ -67,6 +67,17 @@ body {
   animation-delay: -7s;
 }
 
+@media (max-width: 640px) {
+  .orb-blue {
+    width: 300px;
+    height: 300px;
+  }
+  .orb-purple {
+    width: 250px;
+    height: 250px;
+  }
+}
+
 /* Glow effects */
 .glow-accent {
   box-shadow: 0 0 40px rgba(74, 139, 245, 0.15), 0 0 80px rgba(74, 139, 245, 0.05);
@@ -92,4 +103,22 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-tertiary);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

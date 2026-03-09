@@ -46,7 +46,7 @@ const features: Feature[] = [
 
 export function Features() {
   return (
-    <section id={SECTION_IDS.features} className="px-6 py-20">
+    <section id={SECTION_IDS.features} className="px-4 sm:px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Features"
@@ -74,15 +74,17 @@ export function Features() {
                   {feature.description}
                 </p>
                 {feature.screenshot && (
-                  <div className="mb-6 overflow-hidden rounded-lg border border-white/[0.08]">
+                  <figure className="mb-6 overflow-hidden rounded-lg border border-white/[0.08]">
                     <Image
                       src={feature.screenshot}
                       alt={`${feature.title} screenshot`}
                       width={600}
                       height={375}
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="w-full"
                     />
-                  </div>
+                    <figcaption className="sr-only">{feature.title} interface</figcaption>
+                  </figure>
                 )}
                 <div className="flex flex-wrap gap-2">
                   {feature.chips.map((chip) => (
