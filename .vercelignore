@@ -1,0 +1,17 @@
+desktop-*.png
+mobile-*.png
+tablet-*.png
+.codex-*.png
+
+public/images/hero-studio-1-2.png
+public/images/screenshot-*-1-2.png
+
+public/images/captures-1-2/manifest.md
+public/images/captures-1-2/mockups/**
+public/images/captures-1-2/selected/**
+public/images/captures-1-2/state-backup/**
+
+public/images/captures-1-2/raw/01-custom-voice-idle.png
+public/images/captures-1-2/raw/07-history-populated.png
+public/images/captures-1-2/raw/08-preferences-output-and-autoplay.png
+public/images/captures-1-2/raw/09-custom-voice-batch-editor.png

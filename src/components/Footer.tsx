@@ -43,7 +43,7 @@ function LinkList({ items, className }: { items: readonly { name: string; desc: 
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-bg-secondary/50">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
+      <div className="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 sm:pb-16">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-[auto_1px_1fr_1px_1fr] sm:gap-10">
           {/* Brand + Links */}
           <div>

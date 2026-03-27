@@ -44,9 +44,10 @@ export function DownloadCTA() {
             variants={fadeUp}
             className="mb-10 max-w-xl text-lg text-text-secondary"
           >
-            Choose the GitHub release build for your macOS version, move
-            QwenVoice to Applications, clear quarantine once, then download a
-            model from the app&apos;s Models screen.
+            Download either QwenVoice-macos26.dmg for the modern liquid build
+            or QwenVoice-macos15.dmg for the legacy glass build, move
+            QwenVoice to Applications, clear quarantine once, then install the
+            models you want from the app&apos;s Models screen.
           </motion.p>
 
           <motion.div

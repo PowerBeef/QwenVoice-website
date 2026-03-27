@@ -40,7 +40,7 @@ const techItems: TechItem[] = [
     icon: PackageCheck,
     title: "Packaged Native App",
     description:
-      "End users install a DMG and run QwenVoice without setting up Python, Homebrew, or terminal tooling.",
+      "QwenVoice 1.2 ships bundled macOS 15 and macOS 26 DMGs so end users can install without setting up Python, Homebrew, or terminal tooling.",
   },
   {
     icon: Binary,
@@ -50,15 +50,15 @@ const techItems: TechItem[] = [
   },
   {
     icon: Network,
-    title: "Local History and Outputs",
+    title: "Saved Voices, History, and Outputs",
     description:
-      "Generation history is stored locally in SQLite via GRDB, and audio can stay in the default output tree or a custom directory.",
+      "Saved voices, generation history, and exported audio stay local. History is stored in SQLite via GRDB, and output files can use the default tree or a custom directory.",
   },
   {
     icon: SlidersHorizontal,
-    title: "Batch Jobs and Preferences",
+    title: "Streaming Preview + Batch Jobs",
     description:
-      "The shipped GUI supports multi-line batch generation, configurable autoplay, and a dedicated Preferences screen.",
+      "Single-generation flows use live streaming preview in the shipped GUI, while batch jobs remain sequential and final-file-based for longer runs.",
     span: "lg:col-span-2",
   },
 ];
@@ -85,7 +85,7 @@ export function TechHighlights() {
         <SectionHeader
           label="Under the Hood"
           title="Technical Highlights"
-          subtitle="The shipped GUI is built around local inference, in-app model management, and native macOS workflows."
+          subtitle="The shipped GUI is built around local inference, live studio previews, in-app model management, and native macOS workflows."
         />
 
         <div className="flex flex-col gap-4">
@@ -178,8 +178,8 @@ export function TechHighlights() {
           >
             For scripted workflows, the upstream repo also ships a standalone
             CLI companion and a local JSON-RPC 2.0 backend. The packaged GUI
-            intentionally keeps everyday generation inside the app&apos;s
-            non-streaming flow.
+            uses live streaming preview for single generations while keeping
+            batch jobs sequential and file-based.
           </motion.p>
         </div>
       </div>
